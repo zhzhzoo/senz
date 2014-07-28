@@ -4,15 +4,14 @@
 var createBeaconResult = function (query, response) {
     query.find({
         success: function (results) {
-            var result = {'senzes': {}, 'beacons': []};
+            var senzes = {}, beacons = []};
             for (var i = 0; i < results.length; i++) {
                 var b = results[i];
-                console.log('senz,' + JSON.stringify(b.get('senz')));
-                result.senzes[b.get('senz').id] = b.get('senz');
+                senzes[b.get('senz').id] = b.get('senz');
                 b.set('senz', b.get('senz').id);
-                result.beacons.push(b);
+                beacons.push(b);
             }
-            response.success(result);
+            response.success({senzes, beacons});
         },
         error: function (error) {
             response.error("lookup failed," + error.message);
