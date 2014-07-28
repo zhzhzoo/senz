@@ -12,7 +12,7 @@ var createBeaconResult = function (query, response) {
                 b.set('senz', b.get('senz').id);
                 result.beacons.push(b);
             }
-            response.success(JSON.stringify(result));
+            response.success(result);
         },
         error: function (error) {
             response.error("lookup failed," + error.message);
