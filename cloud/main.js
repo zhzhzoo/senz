@@ -11,7 +11,7 @@ var createBeaconResult = function (query, response) {
                 b.set('senz', b.get('senz').id);
                 beacons.push(b);
             }
-            response.success({senzes, beacons});
+            response.success({'senzes' : senzes, 'beacons' : beacons});
         },
         error: function (error) {
             response.error("lookup failed," + error.message);
