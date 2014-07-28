@@ -4,7 +4,7 @@
 var createBeaconResult = function (query, response) {
     query.find({
         success: function (results) {
-            var senzes = {}, beacons = []};
+            var senzes = {}, beacons = [];
             for (var i = 0; i < results.length; i++) {
                 var b = results[i];
                 senzes[b.get('senz').id] = b.get('senz');
